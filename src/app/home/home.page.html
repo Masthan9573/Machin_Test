@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="primary" (click)="gotoLogout()">
+      <ion-button style="padding: 0px !important;" class="ion-no-padding">
+        Logout
+        <!-- <ion-icon slot="icon-only" name="notifications-outline" class="notifiIcon"></ion-icon> -->
+        <!-- <span class="count" *ngIf="unreadNotificationCount">{{unreadNotificationCount}}</span> -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <!-- <div *ngFor="let aa of loginUsers">
+    {{loginUsers.email}}
+  </div> -->
+
+  <div id="container">
+    <div>
+      <p class="Registerdetails"><b> NAME: </b> <span>{{loginUsers.name}} </span></p>
+      <p class="Registerdetails"> <b> EMAIL: </b> <span> {{loginUsers.email}}</span> </p>
+      <p class="Registerdetails"> <b> CONTACT NUMBER: </b> <span>{{loginUsers.mobile}} </span></p>
+    </div>
+
+
+  </div>
+</ion-content>

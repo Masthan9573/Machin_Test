@@ -1,0 +1,56 @@
+<ion-content class="contentColor">
+  <div class="ion-padding">
+    <div id="container">
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="paddT20">
+        <h2 class="ion-no-margin titleFont16"> Login </h2>
+        <ion-item lines="full" class="paddT10">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input class="inputColor" formControlName="email" type="email" [(ngModel)]="account.email">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg ion-text-left"
+            *ngIf="isSubmitted && errorControl.email.errors?.required">
+            Email is required.
+          </ion-text>
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+            Please provide valid email id.
+          </ion-text>
+        </div>
+        <ion-item class="paddT10">
+          <ion-label position="floating">mobile Number</ion-label>
+          <ion-input class="inputColor" type="number" formControlName="mobile" [(ngModel)]="account.mobile" minlength="8"
+            maxlength="12">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+            Mobile Number is required
+          </ion-text>
+
+        </div>
+        <ion-item class="paddT10">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input class="inputColor" formControlName="password" [(ngModel)]="account.password">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.password.errors?.required">
+            Password is required
+          </ion-text>
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.password.errors?.pattern">
+            Your password must be more than 8 characters long, should contain at-least 1 Uppercase, 1 Lowercase, 1
+            Numeric and 1 special character.
+          </ion-text>
+        </div>
+        <div class="marT20">
+          <ion-button type="submit" expand="block" color="success" class="textIn"> Login </ion-button>
+        </div>
+      </form>
+      <div class="marT20">
+        <div  class="register" routerLink="/register"> Register </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-content class="contentColor">
+  <div class="ion-padding">
+    <div id="container">
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="paddT20">
+        <h2 class="ion-no-margin titleFont16"> Register </h2>
+        <ion-item class="paddT10">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input class="inputColor" formControlName="name" [(ngModel)]="account.name">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg ion-text-left"
+            *ngIf="isSubmitted && errorControl.email.errors?.required">
+            Name is required.
+          </ion-text>
+        </div>
+
+        <ion-item lines="full" class="paddT10">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input class="inputColor" formControlName="email" type="email" [(ngModel)]="account.email">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg ion-text-left"
+            *ngIf="isSubmitted && errorControl.email.errors?.required">
+            Email is required.
+          </ion-text>
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+            Please provide valid email id.
+          </ion-text>
+        </div>
+
+        <ion-item class="paddT10">
+          <ion-label position="floating">Contact Number</ion-label>
+          <ion-input class="inputColor" type="number" formControlName="mobile" [(ngModel)]="account.mobile"
+            minlength="8" maxlength="12">
+          </ion-input>
+        </ion-item>
+        <div class="paddT5">
+          <ion-text color="danger" class="errorMsg" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+            Contact Number is required
+          </ion-text>
+        </div>
+        <div class="marT20">
+          <ion-button type="submit" expand="block" color="success" class="textIn"> Register </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</ion-content>
